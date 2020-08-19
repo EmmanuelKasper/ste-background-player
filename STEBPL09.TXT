@@ -1,0 +1,45 @@
+  STE  background audio player
+     Version 0.9 alpha
+
+
+ System requirements:  Atari STE, Mega STE, TT or Falcon computer with hard disk. About 140 KB free RAM . If want to convert during playback program needs 200 KB free RAM. It means that may work even on 512KB machines.
+  Key features:  background audio playback with max possible STE quality :  50066Hz, 8-bit, stereo digital sample  playback. Supports: 50066Hz, 8-bit mono, 25033Hz stereo and mono too.
+  Max datarate is 100 KB/sec, what is achievable even with slow Satandisk.  GUI with playback progress bar etc. Practically unlimited audio file length (limit is partition size).  Playlist support.   100% ASM. - fast and compact code.
+
+  Main goal was to make background player with minimal system load during audio play, direct from hard disk. Therefore playback of only STE compatible PCM formats is supported. In practice it means that before first playback we must convert audio source file in proper format.  When it is ready playback in max quality will load average STE + hard disk about 15 % .
+ 
+  Disk space usage:  max quality files take 6 MB/minute. Min quality quart of that, so 1.5 MB/minute. On 512 MB partition can place therefore some 80 minutes of stereo, 50066 Hz audio (max. qual.). Or about 20 average songs.  So, ideal for people having problems with filling their Atari disks :-)
+
+
+Usage of program:
+  Copy  STEBPL09.ACC in ROOT of C partition. Restart computer.  You will have Desk menu item STEBPL, and can enter control dialog, shown on pic above.
+  All control goes with mouse.  Playback of files with WAE extension is supported. But at begin you will have none of such. So, must convert your MP3, WAV files to that format.  It goes in 2 steps: see at bottom of this page how to convert to proper WAV file on PC (no plans to make that part of conversion on Ataris - it will be very slow). Second part of conversion is with our program: click on 'Convert WAV' and select file. If it is in proper format program will convert it to WAE file in short (or little longer) time (what depends mostly from hard disk speed). Conversion self is just conv. to signed format - as I don't see PC SW what can do signed, STE compatible WAV files. After conversion done you may delete src. WAV file to save disk space. Or prg. will do it for you, if check ' delete WAV ...' button.
+  Button with ethernity symbol is for playing again from start when reach end of file or list - when checked on, of course. You may check/uncheck during playback too.  Progress bar shows current file playback progress. + user may jump to desired part of audio by simple mouse click there.  Jump may be not immediate, especially by lower quality audios - this is background player in first place, jump handling code is very simple.
+  As this is background player we can do even WAV conversion during playback :  then little more free RAM is needed, but is possible even with 512KB machines if no other SW running. Don't try it with Satandisk though - it is too slow for that.
+  Volume setting works on STE and TT, not on Falcon.  Clicking Exit button leaves dialog, but playback continues. Then may run some other APP, performing Desktop operations.
+ But there are limitations what is possible to do without crash and other troubles:
+  Possible is:  running regular GEM SW as diverse editors, database handlers etc.  Graphic programs what use not special tricks - Degas will work. Spectrum 512 and other like ones maybe not.
+  Do not run:  games, debuggers, system affecting SW and similar. It is not enough to just stop playback - you need to restart with deactivated ACC .
+  And of course, program takes some RAM ( ~ 140 KB ) - so better 'run' it not if plan not to use.  'run' here means  loading ACC after restart.  Experienced Atari  users know how it goes:  Change extension to AC instead ACC for instance and restart. Or use some boot manager, even better - use selectable C partition option if your hard disk driver allows it .
+
+  Changing Desktop resolution:  solved to not crash when it is selected. Of course, playback will stop as ACC will be reloaded by res. change.
+
+  Compose playlist :  for now simple 'composing' is implemented:  select DIR with your WAE files in file selector, type in desired filename (no need to type extension), or select existing one (which will be overwritten) .  Program will make list with all WAE files which are in same DIR as selected (typed in) PLS file .
+Such list will contain only filenames, without path, in order as they are in DIR (unsorted). Changing order is possible with some editor.
+
+  The Playlist: simple textual file with extension PLS . Can make it with usual editors.
+
+  Example:
+MYSH.WAE
+BYA25KM.WAE
+H:\DEVEL\STEBPL\MYSL.WAE
+
+  Filenames, separated with pressing  Enter key .  If only filename is given it must be in same DIR as list file. Otherwise full path must be given - third line. Must press Enter key after last item (line) too, and then save file to get proper format.
+  If repeat is checked on, list playback will continue with first item after finishing last one.
+
+   Known issues:  
+             Pressing Esc key in Desktop while partition from which playback goes is opened will result in something known from era of vinyl analog disks: repeating short part of audio constantly.
+            The reason is that TOS refreshes, reinits that partitiona and closes all opened files from. I did not add workaround for it with intention - it is good way to purge out too many opened files, what may happen in case of starting-closing APPs many times during playback.
+
+  This PRG is freeware. Source soon ...
+      PP, March 2011
