@@ -1,2 +1,6 @@
-# ste-background-player
-Atari STE background audio player
+STE background audio player
+===========================
+
+Downloaded from https://atari.8bitchip.info/astopensw.php
+Original Author Pera Putnik.
+
