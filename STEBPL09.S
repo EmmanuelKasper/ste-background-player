@@ -1997,7 +1997,7 @@ moretz add.b #$30,d1
 
 
 
-setDb   dc.b   10    * Initial value  - 10 db
+setDb   dc.b  4    * Initial value  - 4 db
 setVol  dc.b  35
 
 
@@ -3652,14 +3652,14 @@ text7	dc.b	'EXIT',0
 text8	dc.b	'',0
 text9	dc.b	'',0
 text10	dc.b	'ê',0
-text11	dc.b	'STE background audio Player v0.9',0
+text11	dc.b	'STE Background Audio Player v0.9',0
 text12	dc.b	'File info:',0
 text13	dc.b	'            ',0
 text14	dc.b	'                        ',0
 text15	dc.b	'  delete WAV when done',0
 text16	dc.b	'Volume:',0
-text17	dc.b	'-10 db',0
-text18	dc.b	'By PP, 2011',0
+text17	dc.b	'-4 db',0
+text18	dc.b	'By PP, 2021',0
 null	dc.b	0,0
 
 
